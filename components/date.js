@@ -4,3 +4,4 @@ export default function Date({dateString}) {
     const date = parseISO(dateString)
     return <time dataTime={dateString}>{format(date, 'LLLL d, yyyy')}</time>
 }
+

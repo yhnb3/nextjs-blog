@@ -3,19 +3,31 @@ import Layout from '../../components/layout'
 import Head from 'next/head'
 import Date from '../../components/date'
 import { getAllPostIds, getPostData } from '../../lib/posts'
+import Header from '../../components/header'
+import Link from 'next/link'
 
 export default function Post({postData}) {
   return (
+	<div>
+		<Header></Header>
 		<Layout children>
 			<Head><title>{postData.title}</title></Head>
 			<article>
 				<h1 className={utilStyles.headingXl}>{postData.title}</h1>
+        <div>
+          {postData.tags.split(' ').map((tag) => (
+            <Link href={`/tags/${tag}`}>
+              <button key={tag}>#{tag}</button>
+            </Link>
+          ))}
+        </div>
 				<div className={utilStyles.lightText}>
 					<Date dateString={postData.date} />
 				</div>
 				<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 			</article>
 		</Layout>
+	</div>
 	)
 }
 
@@ -35,3 +47,4 @@ export async function getStaticProps({ params }) {
     }
   }
 }
+ 

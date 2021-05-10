@@ -1,13 +1,25 @@
 .container {
-  max-width: 36rem;
+  max-width: 50rem;
   padding: 0 1rem;
   margin: 3rem auto 6rem;
 }
 
 .header {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  background-color: black;
+  justify-content: space-between;
+}
+
+.headerChild {
+  display: flex;
+  margin: 1rem 1rem;
+  color: white;
+}
+
+.headerChild a{
+  color: white;
+  text-decoration: none;
 }
 
 .backToHome {
