@@ -69,3 +69,8 @@
   background-color: rgba(128, 128, 255, 0.5);
   text-decoration: none;
 }
+
+.isDisable {
+  pointer-events: none;
+  color: grey
+}
