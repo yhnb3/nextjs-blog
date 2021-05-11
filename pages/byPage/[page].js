@@ -1,11 +1,11 @@
 import Head from 'next/head'
-import Layout, { siteTitle } from '../components/layout'
-import utilStyles from '../styles/utils.module.css'
+import Layout, { siteTitle } from '../../components/layout'
+import utilStyles from '../../styles/utils.module.css'
 import Link from 'next/link'
-import Date from '../components/date'
-import Header from '../components/header'
+import Date from '../../components/date'
+import Header from '../../components/header'
 
-import { getSortedPostsData, dataDividedByPage } from '../lib/posts'
+import { getPageNumber, getSortedPostsData, dataDividedByPage } from '../../lib/posts'
 
 export default function Home({paginatedPosts, page}) {
   return (
@@ -48,17 +48,21 @@ export default function Home({paginatedPosts, page}) {
     </div>
   )
 }
-export async function getStaticPath(){
 
+export async function getStaticPaths() {
+  const paths = getPageNumber()
+  return {
+    paths,
+    fallback: false
+}
 }
 
-
-export async function getStaticProps() {
+export async function getStaticProps({ params }) {
   const allPostsData = getSortedPostsData()
-  const paginatedPosts = dataDividedByPage(allPostsData, 0)
+  const paginatedPosts = dataDividedByPage(allPostsData, parseInt(params.page)-1)
   return {
     props: {
-      page: 1,
+      page : parseInt(params.page),
       paginatedPosts
     }
   }

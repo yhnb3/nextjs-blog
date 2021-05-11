@@ -18,19 +18,19 @@ export default function tags({tagPosts, tag}) {
             {tagPosts.map(({ id, date, title, tags }) => (
               <li className={utilStyles.listItem} key={id}>
                 <Link href={`/posts/${id}`}>
-                  <a>{title}</a>
+                  <a className={utilStyles.title}>{title}</a>
                 </Link>
-              <div>
-                {tags.split(' ').map((tag) => (
-                  <Link href={`/tags/${tag}`}>
-                    <button key={tag}>#{tag}</button>
-                  </Link>
-                ))}
-              </div>
               <br />
               <small className={utilStyles.lightText}>
                 <Date dateString={date} />
               </small>
+              <div>
+                {tags.split(' ').map((tag) => (
+                  <Link href={`/tags/${tag}`}>
+                    <a className={utilStyles.tag} key={tag}>#{tag}</a>
+                  </Link>
+                ))}
+              </div>
             </li>
             ))}
           </ul>

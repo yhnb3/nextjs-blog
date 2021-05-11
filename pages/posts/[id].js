@@ -14,15 +14,15 @@ export default function Post({postData}) {
 			<Head><title>{postData.title}</title></Head>
 			<article>
 				<h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div>
-          {postData.tags.split(' ').map((tag) => (
-            <Link href={`/tags/${tag}`}>
-              <button key={tag}>#{tag}</button>
-            </Link>
-          ))}
-        </div>
 				<div className={utilStyles.lightText}>
 					<Date dateString={postData.date} />
+				</div>
+				<div>
+				{postData.tags.split(' ').map((tag) => (
+					<Link href={`/tags/${tag}`}>
+					<a className={utilStyles.tag} key={tag}>#{tag}</a>
+					</Link>
+				))}
 				</div>
 				<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 			</article>
