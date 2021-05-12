@@ -4,46 +4,11 @@ import utilStyles from '../../styles/utils.module.css'
 import Link from 'next/link'
 import Date from '../../components/date'
 import Header from '../../components/header'
+import Pagination from "../../components/pagination"
 
 import { getPageNumber, getSortedPostsData, dataDividedByPage } from '../../lib/posts'
 
 export default function Home({paginatedPosts, page}) {
-  const pagination = () => {
-    if (page === 1){
-      return (
-        <div>
-          <a className={utilStyles.isDisable} href={`/byPage/${page-1}`}>
-            이전
-          </a>
-          <a href={`/byPage/${page+1}`}>
-            다음
-          </a>
-        </div> 
-      )
-    } else if (page === paginatedPosts.length) {
-      return (
-        <div>
-          <a href={`/byPage/${page-1}`}>
-            이전
-          </a>
-          <a className={utilStyles.isDisable} href={`/byPage/${page+1}`}>
-            다음
-          </a>
-        </div> 
-      )
-    } else {
-      return (
-        <div>
-          <a href={`/byPage/${page-1}`}>
-            이전
-          </a>
-          <a className={utilStyles.isDisable} href={`/byPage/${page+1}`}>
-            다음
-          </a>
-        </div> 
-      )
-    }
-  }
   return (
     <div>
       <Header></Header>
@@ -77,7 +42,7 @@ export default function Home({paginatedPosts, page}) {
             ))}
           </ul>
         </section>
-        {pagination()}
+        <Pagination lastPage={paginatedPosts.length} currentPage={page}></Pagination>
       </Layout>
     </div>
   )

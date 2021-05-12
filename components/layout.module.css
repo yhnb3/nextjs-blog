@@ -25,3 +25,20 @@
 .backToHome {
   margin: 3rem 0 0;
 }
+
+.pageBtn {
+  padding: auto;
+  color: black;
+  margin: 0rem 0.7rem;
+}
+
+.isDisableBtn {
+  color: grey;
+  margin: 0rem 0.7rem;
+}
+
+.currentPage {
+  font-weight: bolder;
+  color: black;
+  margin: 0rem 0.7rem;
+}
