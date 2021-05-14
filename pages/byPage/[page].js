@@ -59,6 +59,7 @@ export async function getStaticProps({ params }) {
   const allTags = getAllTags()
   return {
     props: {
+      allTags,
       page : parseInt(params.page),
       paginatedPosts
     }
