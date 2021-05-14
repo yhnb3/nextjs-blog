@@ -2,15 +2,15 @@ import utilStyles from '../../styles/utils.module.css'
 import Layout from '../../components/layout'
 import Head from 'next/head'
 import Date from '../../components/date'
-import { getAllPostIds, getPostData } from '../../lib/posts'
+import { getAllPostIds, getPostData, getAllTags } from '../../lib/posts'
 import Header from '../../components/header'
 import Link from 'next/link'
 
-export default function Post({postData}) {
+export default function Post({postData, allTags}) {
   return (
 	<div>
 		<Header></Header>
-		<Layout>
+		<Layout tags={allTags}>
 			<Head><title>{postData.title}</title></Head>
 			<article>
 				<h1 className={utilStyles.headingXl}>{postData.title}</h1>
@@ -41,8 +41,10 @@ export function getStaticPaths() {
 
 export async function getStaticProps({ params }) {
   const postData = await getPostData(params.id)
+  const allTags = getAllTags()
   return {
     props: {
+	  allTags,
       postData
     }
   }

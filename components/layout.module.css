@@ -1,7 +1,42 @@
+
 .container {
+  display:flex;
+  flex-direction: row;
+  max-width: 100rem;
+  padding: 0 1rem;
+  margin: 0 6rem 0 6rem;
+}
+.main {
   max-width: 50rem;
   padding: 0 1rem;
-  margin: 3rem 2rem 0 6rem;
+  margin: 3rem 5rem 0 5rem;
+}
+.aside {
+  margin: 3rem 5rem 0 5rem;
+}
+
+.tagList {
+  display: grid;
+  border: solid grey 2px;
+  border-radius: 2%;
+  padding: 0.5rem;
+  grid-template-columns: repeat(auto-fill, minmax(5rem, auto));
+  grid-template-rows: repeat(auto-fill, minmax(2rem,auto));
+  width: 15rem;
+  margin: 1rem 0 0 0;
+  height: fit-content;
+}
+
+.tags{
+  grid-column: auto;
+  background-color: #eff1ff;
+  height: fit-content;
+  width: fit-content;
+  color: #2D50FF;
+  padding: 5px;
+  font-size: 12px;
+  margin: 0.1rem 0.1rem 0.1rem 0rem;
+
 }
 
 .header {

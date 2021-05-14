@@ -6,11 +6,11 @@ import Date from '../../components/date'
 import Head from 'next/head'
 import Header from '../../components/header'
 
-export default function tags({tagPosts, tag}) {
+export default function tags({tagPosts, tag, allTags}) {
     return (
       <>      
       <Header></Header>
-      <Layout>
+      <Layout tags={allTags}>
         <Head><title>{tag.name}</title></Head>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>{tag.name}</h2>
@@ -26,8 +26,8 @@ export default function tags({tagPosts, tag}) {
               </small>
               <div>
                 {tags.split(' ').map((tag) => (
-                  <Link href={`/tags/${tag}`}>
-                    <a className={utilStyles.tag} key={tag}>#{tag}</a>
+                  <Link key={tag} href={`/tags/${tag}`}>
+                    <a className={utilStyles.tag} >#{tag}</a>
                   </Link>
                 ))}
               </div>
@@ -50,8 +50,10 @@ export function getStaticPaths() {
 
 export function getStaticProps({ params }) {
   const tagPosts = getTagPost(params.tag)
+  const allTags = getAllTags()
   return {
     props: {
+      allTags,
       tag: {name: params.tag},
       tagPosts
     }

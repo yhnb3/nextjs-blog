@@ -6,19 +6,16 @@ import Date from '../../components/date'
 import Header from '../../components/header'
 import Pagination from "../../components/pagination"
 
-import { getPageNumber, getSortedPostsData, dataDividedByPage } from '../../lib/posts'
+import { getPageNumber, getSortedPostsData, dataDividedByPage, getAllTags } from '../../lib/posts'
 
-export default function Home({paginatedPosts, page}) {
+export default function Home({paginatedPosts, page, allTags}) {
   return (
     <div>
       <Header></Header>
-      <Layout home>
+      <Layout home tags={allTags}>
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <section className={utilStyles.headingMd}>
-          <p>안녕하세요 강우의 블로그 입니다.</p>
-        </section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>Recent post</h2>
           <ul className={utilStyles.list}>
@@ -59,6 +56,7 @@ export async function getStaticPaths() {
 export async function getStaticProps({ params }) {
   const allPostsData = getSortedPostsData()
   const paginatedPosts = dataDividedByPage(allPostsData)
+  const allTags = getAllTags()
   return {
     props: {
       page : parseInt(params.page),

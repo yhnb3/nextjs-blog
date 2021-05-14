@@ -6,13 +6,13 @@ import Date from '../components/date'
 import Header from '../components/header'
 import Pagination from '../components/pagination'
 
-import { getSortedPostsData, dataDividedByPage } from '../lib/posts'
+import { getSortedPostsData, dataDividedByPage, getAllTags} from '../lib/posts'
 
-export default function Home({paginatedPosts, page}) {
+export default function Home({paginatedPosts, page, allTags}) {
   return (
     <div>
       <Header></Header>
-      <Layout home>
+      <Layout home tags ={allTags}>
         <Head>
           <title>{siteTitle}</title>
         </Head>
@@ -52,9 +52,11 @@ export async function getStaticPath(){
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData()
   const paginatedPosts = dataDividedByPage(allPostsData, 0)
+  const allTags = getAllTags()
   return {
     props: {
       page: 1,
+      allTags,
       paginatedPosts
     }
   }
