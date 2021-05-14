@@ -49,9 +49,9 @@ export default function Pagination(props) {
       {buttons(props.currentPage, props.lastPage).map((page) => {
         if (page !== "dot") {
           if (page === props.currentPage) {
-            return <a className={styles.currentPage}>{page}</a>
+            return <a key={page} className={styles.currentPage}>{page}</a>
           } else {
-            return <a href={`/byPage/${page}`} className={styles.pageBtn}>{page}</a>
+            return <a  key={page} href={`/byPage/${page}`} className={styles.pageBtn}>{page}</a>
           }
         } else {          
           return <span key={page}>...</span>

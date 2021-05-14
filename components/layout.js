@@ -24,6 +24,11 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
+      {home ?
+      <section className={utilStyles.headingMd}>
+          <p>안녕하세요 강우의 블로그 입니다.</p>
+      </section>
+      : <></>}
       <main>{children}</main>
     </div>
   )

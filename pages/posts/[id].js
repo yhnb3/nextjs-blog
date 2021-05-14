@@ -10,7 +10,7 @@ export default function Post({postData}) {
   return (
 	<div>
 		<Header></Header>
-		<Layout children>
+		<Layout>
 			<Head><title>{postData.title}</title></Head>
 			<article>
 				<h1 className={utilStyles.headingXl}>{postData.title}</h1>
@@ -19,8 +19,8 @@ export default function Post({postData}) {
 				</div>
 				<div>
 				{postData.tags.split(' ').map((tag) => (
-					<Link href={`/tags/${tag}`}>
-					<a className={utilStyles.tag} key={tag}>#{tag}</a>
+					<Link key={tag} href={`/tags/${tag}`}>
+						<a className={utilStyles.tag} >#{tag}</a>
 					</Link>
 				))}
 				</div>

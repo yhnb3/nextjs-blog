@@ -16,9 +16,6 @@ export default function Home({paginatedPosts, page}) {
         <Head>
           <title>{siteTitle}</title>
         </Head>
-        <section className={utilStyles.headingMd}>
-          <p>안녕하세요 강우의 블로그 입니다.</p>
-        </section>
         <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
           <h2 className={utilStyles.headingLg}>Recent post</h2>
           <ul className={utilStyles.list}>
