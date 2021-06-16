@@ -44,20 +44,22 @@ export default function Pagination(props) {
     }
   }
   return (
-    <div>
-      {preBtn(props.currentPage)}
-      {buttons(props.currentPage, props.lastPage).map((page) => {
-        if (page !== "dot") {
-          if (page === props.currentPage) {
-            return <a key={page} className={styles.currentPage}>{page}</a>
-          } else {
-            return <a  key={page} href={`/byPage/${page}`} className={styles.pageBtn}>{page}</a>
+    <div >
+      <div className={styles.pagenation}>
+        {preBtn(props.currentPage)}
+        {buttons(props.currentPage, props.lastPage).map((page) => {
+          if (page !== "dot") {
+            if (page === props.currentPage) {
+              return <a key={page} className={styles.currentPage}>{page}</a>
+            } else {
+              return <a  key={page} href={`/byPage/${page}`} className={styles.pageBtn}>{page}</a>
+            }
+          } else {          
+            return <span key={page}>...</span>
           }
-        } else {          
-          return <span key={page}>...</span>
-        }
-      })}   
-      {nextBtn(props.currentPage, props.lastPage)}
+        })}   
+        {nextBtn(props.currentPage, props.lastPage)}
+      </div>
     </div>
   )
 
