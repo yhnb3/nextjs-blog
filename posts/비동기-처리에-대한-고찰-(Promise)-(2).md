@@ -1,6 +1,6 @@
 ---
 title: 비동기 처리에 대한 고찰 (Promise) (2) 
-tags: 'Javascript'
+tags: 'JavaScript'
 date: '2021-06-30'
 ---
 
