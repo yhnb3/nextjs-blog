@@ -1,6 +1,6 @@
 ---
 title: Javascript의 Prototype
-tags: 'Javascript'
+tags: 'JavaScript'
 date: '2021-07-08'
 ---
 
