@@ -86,3 +86,14 @@
   margin: 0rem 0.7rem;
 }
 
+.footer {
+  display: flex;
+  justify-content: center;
+  bottom: 0;
+  height: 100px;
+  background-color: white;
+}
+
+.footerItem {
+  margin-top: auto;
+}

@@ -9,7 +9,6 @@ export default function headers() {
                     <a>강우의 기록</a>
                 </Link>
             </span>
-            <span className={styles.headerChild}>search</span>
         </div>
     )
 }
