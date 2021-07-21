@@ -5,6 +5,7 @@ import Layout from '../../components/layout'
 import Date from '../../components/date'
 import Head from 'next/head'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 
 export default function tags({tagPosts, tag, allTags}) {
     return (
@@ -36,6 +37,7 @@ export default function tags({tagPosts, tag, allTags}) {
           </ul>
         </section>
       </Layout>
+      <Footer></Footer>
       </>
     )
 }

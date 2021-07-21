@@ -7,6 +7,7 @@ import Header from '../../components/header'
 import Pagination from "../../components/pagination"
 
 import { getPageNumber, getSortedPostsData, dataDividedByPage, getAllTags } from '../../lib/posts'
+import Footer from '../../components/footer'
 
 export default function Home({paginatedPosts, page, allTags}) {
   return (
@@ -41,6 +42,7 @@ export default function Home({paginatedPosts, page, allTags}) {
         </section>
         <Pagination lastPage={paginatedPosts.length} currentPage={page}></Pagination>
       </Layout>
+      <Footer></Footer>
     </div>
   )
 }

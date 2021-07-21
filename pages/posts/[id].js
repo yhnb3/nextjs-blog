@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import { getAllPostIds, getPostData, getAllTags } from '../../lib/posts'
 import Header from '../../components/header'
+import Footer from '../../components/footer'
 import Link from 'next/link'
 
 export default function Post({postData, allTags}) {
@@ -27,6 +28,7 @@ export default function Post({postData, allTags}) {
 				<div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
 			</article>
 		</Layout>
+		<Footer></Footer>
 	</div>
 	)
 }
