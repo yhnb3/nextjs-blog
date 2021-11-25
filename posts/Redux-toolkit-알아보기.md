@@ -1,6 +1,6 @@
 ---
 title: Redux toolkit 알아보기
-tags: 'React Javascript'
+tags: 'React JavaScript'
 date : '2021-09-15'
 ---
 
