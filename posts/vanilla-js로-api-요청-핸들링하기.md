@@ -74,7 +74,7 @@ $input.addEventListener("keyup", (e) => {                // keyup이 입력 되�
 
 ### 너무 빠르게 입력하는 경우
 
-![image-20220413202422497](C:\Users\yhnb3\AppData\Roaming\Typora\typora-user-images\image-20220413202422497.png)
+![image](https://user-images.githubusercontent.com/60080270/163170994-cdcef48e-4bc0-4bc7-8dac-bce5ec3b54f8.png)
 
 ㅐ를 누르고 있으면 다음과 같이 단 한번만 로그가 찍힙니다.
 
